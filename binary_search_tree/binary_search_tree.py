@@ -30,7 +30,31 @@ class BinarySearchTree:
           complete = True
 
   def contains(self, target):
-    pass
+    current = self
+    complete = False
+
+    while not complete:
+      #if there is nothing left to check, then return false
+      if not current:
+        return False
+      #if the value of the current node is equal to the target
+      if current.value == target:
+        return True
+      #if the current value is greater than the target
+      elif current.value > target:
+        current = current.left
+      #if current value is less than the target 
+      else:
+        current = current.right
 
   def get_max(self):
-    pass
+    current = self
+    max = 0
+
+    while current:
+      #if the current value is greater than the max
+      if current.value > max:
+        max = current.value
+        current = current.right
+
+    return max
